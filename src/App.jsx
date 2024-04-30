@@ -1,12 +1,9 @@
-import Footer from "./components/Footer"
+import HomeLayout from "./layouts/HomeLayout"
 function App() {
 
   return (
    <>
-    <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
-    <Footer />
+    <HomeLayout />
    </>
   )
 }
