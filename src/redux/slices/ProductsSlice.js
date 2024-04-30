@@ -14,7 +14,20 @@ export const getProducts = createAsyncThunk('/products',async(data)=> {
             success: 'Products fetched successfully',
             error: 'Failed to fetch Products'
         })
-        console.log("response",response);
+        return (await response)?.data;
+    } catch (error) {
+        toast.error(error?.response?.data?.message);
+    }
+})
+
+export const categorieProducts = createAsyncThunk('/products/categorie',async(data)=> {
+    try {
+        const response =  axiosInstance.get(`/products/category/${data}`);
+        toast.promise(response, {
+            loading: 'fetching categori Products',
+            success: 'Products fetched successfully',
+            error: 'Failed to fetch Products'
+        })
         return (await response)?.data;
     } catch (error) {
         toast.error(error?.response?.data?.message);
@@ -29,10 +42,15 @@ const productsSlice = createSlice({
         builder.addCase(getProducts.fulfilled, (state, action) => {
            if(action?.payload) {
             state.productList = action?.payload;
-            console.log("payload",action?.payload);
            }
         })
+        .addCase(categorieProducts.fulfilled, (state, action) => {
+            if(action?.payload) {
+                state.productList = action?.payload;
+            }
+        })
     }
+    
 })
 
 export default productsSlice.reducer;

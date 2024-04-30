@@ -1,6 +1,11 @@
 import React , { useState } from "react";
 import { GrPrevious , GrNext } from "react-icons/gr";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { getProducts } from "../redux/slices/ProductsSlice";
+import HomeLayout from "../layouts/HomeLayout";
+import ProductList from "../components/ProductList";
 
 import bannerOne from "../assets/banners/banner1.jpg";
 import bannerTwo from "../assets/banners/banner2.webp";
@@ -25,6 +30,7 @@ function CatergorieCard({title,image}) {
 
 
 function Home() {
+    const dispatch = useDispatch();
     const images = [
         bannerOne,
         bannerTwo,
@@ -41,9 +47,16 @@ function Home() {
               setCurrentImageIndex((currentImageIndex - 1 + images.length) % images.length);
           
           }
+    async function fetchProducts() {
+        await dispatch(getProducts());
+        
+    }
+    useEffect(()=>{
+        fetchProducts();
+    },[])
 
     return (
-        <div>
+        <HomeLayout>
             <section className="relative">
                 <button className="absolute top-1/2 left-0 transform translate-y-1/2 bg-transparent p-2"
                 onClick={prevSlide}>
@@ -68,7 +81,9 @@ function Home() {
                     </div>
                 </div>
             </section>
-        </div>
+            <h1 className='text-4xl  text-center font-bold sm:text-left sm:no-underline  pl-5  text-black'>Top products</h1>
+            <ProductList />
+        </HomeLayout>
     );
 }
 
