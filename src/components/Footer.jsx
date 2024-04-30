@@ -12,10 +12,10 @@ function Footer() {
                 </section>
                 <section className="flex
                  items-center justify-center gap-5 text-zxl text-white">
-                    <a href="#" className="hover:text-[#374151] translate-all ease-in-out duration-300"><BsFacebook/></a>
-                    <a href="#" className="hover:text-[#374151] translate-all ease-in-out duration-300"><BsInstagram/></a>
-                    <a href="#" className="hover:text-[#374151] translate-all ease-in-out duration-300"><BsLinkedin/></a>
-                    <a href="#" className="hover:text-[#374151] translate-all ease-in-out duration-300"><BsGithub/></a>
+                    <a href="#" className="hover:text-[#F3F4F6] translate-all ease-in-out duration-300"><BsFacebook/></a>
+                    <a href="#" className="hover:text-[#F3F4F6] translate-all ease-in-out duration-300"><BsInstagram/></a>
+                    <a href="#" className="hover:text-[#F3F4F6] translate-all ease-in-out duration-300"><BsLinkedin/></a>
+                    <a href="#" className="hover:text-[#F3F4F6] translate-all ease-in-out duration-300"><BsGithub/></a>
                 </section>
             </footer>
         </>
