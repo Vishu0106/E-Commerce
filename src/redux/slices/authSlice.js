@@ -1,7 +1,4 @@
-
-
-
-import {json} from "react-router-dom";
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     isLoggedIn: localStorage.getItem("isLoggedIn") || false
