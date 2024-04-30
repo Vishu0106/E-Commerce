@@ -10,10 +10,10 @@ function ProductCard({product}) {
             <img className='w-full h-full object-center transition-transform transform scale-100 hover:scale-110' src={product.image} alt='product image' />
         </Link>
         <h3 className='text-xl px-1 min-h-8 text-black font-semibold line-clamp-2'>{product.title}</h3>
-        <p className='mt-2  px-1 text-md font font-semibold text-slate-600 font sm:font-sm line-clamp-3'>{product.description}</p>
+        <p className='mt-2  px-1 text-md font font-semibold text-slate-600 font sm:font-sm line-clamp-2'>{product.description}</p>
         <div className='absolute bottom-0 right-0 left-0 mb-3 flex items-center justify-around gap-4'>
          <p className='flex items-center font-bold text-lg '><span><FaIndianRupeeSign /></span>{product.price}</p>
-         <button className='flex items-center gap-1 p-2 bg-[#714B67] rounded-md text-white'><span><FaCartArrowDown /></span>Add to cart</button>
+         <button className='flex items-center gap-1 p-2 bg-[#714B67] rounded-md hover:bg-[#5e3454] text-white'><span><FaCartArrowDown /></span>Add to cart</button>
         </div>
     </div>
 

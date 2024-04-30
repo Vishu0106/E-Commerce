@@ -8,7 +8,7 @@ const initialState = {
 
 export const getProducts = createAsyncThunk('/products',async(data)=> {
     try {
-        const response =  axiosInstance.get(`/products?limit=${10}`);
+        const response =  axiosInstance.get(`/products?limit=${20}`);
         toast.promise(response, {
             loading: 'fetching Products',
             success: 'Products fetched successfully',

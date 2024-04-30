@@ -9,15 +9,15 @@ function ProductList() {
     const {productList} = useSelector((state) => state.products);
 
     async function fetchProducts() {
-        await dispatch(getProducts(page));
+        await dispatch(getProducts());
     }
     useEffect(()=>{
         fetchProducts();
-    },[page])
+    },[])
   return (
     <section className='mt-2 flex flex-col'>
-        <h1 className='text-2xl font-semibold text-gray-700 md:text-center'>Top products</h1>
-        <div className='mt-2 p-10 bg-[#F3F4F6] rounded-sm flex flex-row flex-wrap gap-4 items-center justify-center'>
+        <h1 className='text-4xl  text-center font-bold sm:text-left sm:no-underline  pl-5  text-black'>Top products</h1>
+        <div className='m-3 rounded-3xl sm:rounded-md p-10 bg-[#F3F4F6]  flex flex-row flex-wrap gap-4 items-center justify-center'>
             {
                 productList.map((product) => (
                     <ProductCard key={product?.id} product={product} />
