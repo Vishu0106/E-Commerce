@@ -52,7 +52,7 @@ function Signup() {
 
     return(
         <HomeLayout>
-            <div className="flex overflow-x-auto items-center justify-center h-[80vh]">
+            <div className="flex overflow-x-auto items-center justify-center h-[80vh] bg-[#F3F4F6]">
                 <form
                 onSubmit={onFormSubmit} noValidate className="flex flex-col justify-center gap-3 rounded-2xl p-4 text-white bg-white shadow-2xl">
                     <h1 className="text-2xl text-center font-bold text-[#604058]">Registration Page</h1>
