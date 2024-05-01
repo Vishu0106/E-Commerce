@@ -10,8 +10,6 @@ function CategoriProducts() {
     const cat = ["","electronics","jewelery","men's clothing","women's clothing"];
     async function fetchProducts() { 
         const val = cat[id];
-        console.log(val);  
-        console.log(id);
         await dispatch(categorieProducts(val||"electronics"));
     }
     useEffect(()=>{

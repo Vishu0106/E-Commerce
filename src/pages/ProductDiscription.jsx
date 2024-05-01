@@ -13,13 +13,12 @@ import { addToCart } from "../redux/slices/cartSlice"
 
 
 function ProductDiscription() {
-    window.scrollTo(0,0);
+
     const {isLoggedIn} = useSelector(state => state.auth);
     const {wishlist} = useSelector(state => state.wishlist);
     const {cart} = useSelector(state => state.cart);
     const {id} = useParams();
     const {state} = useLocation();
-    console.log(state);
     const dispatch = useDispatch();
     const addToCartHandler = (product) => {
         if(!isLoggedIn) {
@@ -58,6 +57,7 @@ function ProductDiscription() {
     }
     useEffect(()=>{
         fetchProducts();
+        window.scrollTo(0,0);
     },[])
   return (
     <HomeLayout>
