@@ -1,6 +1,22 @@
-# Project Name
+# E-Commerce Website-FrontEnd
 
 This project is a React application created using Vite, Tailwind CSS, Redux Toolkit, and React-Router.
+
+As it is Frontend project i have used the below api to get the products details
+
+```bash
+https://fakestoreapi.com/products
+```
+> **Note:** I have used the above API only to get the details of the Product..
+
+## Technologies Used
+
+- [Vite](https://vitejs.dev/) - Fast React build tool
+- [React](https://reactjs.org/) - JavaScript library for building UIs
+- [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework
+- [Redux Toolkit](https://redux-toolkit.js.org/) - Redux state management
+- [React-Router-dom](https://reactrouter.com/) - Declarative routing for React
+
 
 ## Installation
 
@@ -30,7 +46,7 @@ To run the development server locally, use the following command:
 npm run dev
 ```
 
-The development server will start at `http://localhost:3000` by default.
+The development server will start at `http://localhost:5173` by default.
 
 ## Building for Production
 
@@ -46,7 +62,7 @@ The production build will be generated in the `dist` directory.
 ## Project Folder Structure
 
 ```
-your-project/
+E-Commerce/
 ├── public/              # Public assets and index.html
 ├── src/                 # Source files
 │   ├── assets/          # Static assets like images
@@ -63,12 +79,6 @@ your-project/
 └── tailwind.config.js   # Tailwind CSS configuration
 ```
 
-## Technologies Used
 
-- [Vite](https://vitejs.dev/) - Fast React build tool
-- [React](https://reactjs.org/) - JavaScript library for building UIs
-- [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework
-- [Redux Toolkit](https://redux-toolkit.js.org/) - Redux state management
-- [React-Router-dom](https://reactrouter.com/) - Declarative routing for React
 
            
