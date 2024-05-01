@@ -25,7 +25,7 @@ function CartCard({product}) {
     return (
         <div className="flex flex-col md:flex-row border-b border-gray-400 py-4">
             <div className="flex-shrink-0">
-                <img src={product.image} alt="Product image" className="w-32 h-32 object-cover" />
+                <img src={product.image} alt="Product image" className="w-32 h-32 object-center" />
             </div>
             <div className="mt-4 md:mt-0 md:ml-6">
                 <h2 className="text-lg font-bold">{product.title}</h2>
@@ -59,7 +59,6 @@ function Cart() {
             noOfItems : cart.length
         }
         const handleCheckout = () => {
-            console.log("Checkout",data);
             navigate("/checkout",{state:data});
 
         }
@@ -73,40 +72,40 @@ function Cart() {
     return (
         <HomeLayout>
                 {
-                        cart?.length>0 ? (
-                            <div className="container mx-auto px-4 py-8 min-h-[80vh]">
-                                <div className="flex flex-col md:flex-row md:justify-between md:items-center">
-                                    <h1 className="text-2xl font-bold my-4 sticky">Shopping Cart</h1>
-                                    <div onClick={handleCheckout} className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded text-center">
-                                        Checkout
-                                    </div>
+                    cart?.length>0 ? (
+                        <div className="container mx-auto px-4 py-8 min-h-[80vh]">
+                            <div className="flex flex-col md:flex-row md:justify-between md:items-center">
+                                <h1 className="text-2xl font-bold my-4 sticky">Shopping Cart</h1>
+                                <div onClick={handleCheckout} className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded text-center">
+                                    Checkout
                                 </div>
-                            <div className="mt-8">
-                                {
-                                    cart.map(product => (
-                                        <CartCard product={product} key={product.id} />
-                                    ))
-                                    
-                                }
                             </div>
-                            <div className="flex justify-end items-center mt-8">
-                                <span className="text-gray-600 mr-4">Subtotal:</span>
-                                <span className="text-xl font-bold">{total}</span>
-                            </div>
-                            <div className='flex items-center justify-center'>
-                                <Link to="/" className="mt-2 bg-[#604058] hover:bg-[#633557] transition-all ease-in-out duration-300 cursor-pointer py-2 px-4 font-semibold text-lg rounded-md">
-                                Shop
-                                </Link>
-                            </div>
-                        </div>) : (
-                        <div className="min-h-[80vh] bg-[#F3F4F6] flex items-center justify-center">
-                            <div className="bg-white p-8 shadow-lg rounded-lg">
-                                <h2 className="text-2xl font-bold mb-4">Your Cart is Empty</h2>
-                                <p className="text-gray-600">Start adding items to your cart to see them here.</p>
-                                <Link to="/" className="text-2xl font-bold mb-4 underline text-center flex items-center gap-2 text-accent">Continue Shopping <span><FaBagShopping/></span></Link>
-                            </div>
-                            
-                        </div>)
+                        <div className="mt-8">
+                            {
+                                cart.map(product => (
+                                    <CartCard product={product} key={product.id} />
+                                ))
+
+                            }
+                        </div>
+                        <div className="flex justify-end items-center mt-8">
+                            <span className="text-gray-600 mr-4">Subtotal:</span>
+                            <span className="text-xl font-bold">{total}</span>
+                        </div>
+                        <div className='flex items-center justify-center'>
+                            <Link to="/" className="mt-2 bg-[#604058] hover:bg-[#633557] transition-all ease-in-out duration-300 cursor-pointer py-2 px-4 font-semibold text-lg rounded-md">
+                            Keep Shopping
+                            </Link>
+                        </div>
+                    </div>) : (
+                    <div className="min-h-[80vh] bg-[#F3F4F6] flex items-center justify-center">
+                        <div className="bg-white p-8 shadow-lg rounded-lg">
+                            <h2 className="text-2xl font-bold mb-4">Your Cart is Empty</h2>
+                            <p className="text-gray-600">Start adding items to your cart to see them here.</p>
+                            <Link to="/" className="text-2xl font-bold mb-4 underline text-center flex items-center gap-2 text-accent">Continue Shopping <span><FaBagShopping/></span></Link>
+                        </div>
+
+                    </div>)
                 }        
         </HomeLayout>
     )

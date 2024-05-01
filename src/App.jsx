@@ -10,6 +10,7 @@ import Cart from "./pages/Cart"
 import CategoriProducts from "./pages/CategoriProducts"
 import ProductDiscription from "./pages/ProductDiscription"
 import CheckoutSuccess from "./pages/checkoutSuccess"
+import Wishlist from "./pages/Wishlist"
 function App() {
 
   return (
@@ -22,8 +23,10 @@ function App() {
       <Route path="/products/category/:id" element={<CategoriProducts />} />
       <Route element={<RequireAuth />}>
           <Route path="/cart" element={<Cart />}/>
+          <Route path="/wishlist" element={<Wishlist />}/>
           <Route path="/checkout" element={<Checkout/>}/>
           <Route path="/payment" element={<CheckoutSuccess/>}/>
+
       </Route>
       <Route path='*' element={<NotFound />}/>
       

@@ -5,15 +5,54 @@ import { useLocation } from "react-router-dom"
 import { useParams } from "react-router"
 
 import { categorieProducts } from "../redux/slices/ProductsSlice";
+import { addToWishlist } from "../redux/slices/wishlistSlice"
 import HomeLayout from "../layouts/HomeLayout"
 import ProductList from "../components/ProductList"
 import toast from "react-hot-toast";
+import { addToCart } from "../redux/slices/cartSlice"
 
 
 function ProductDiscription() {
+    window.scrollTo(0,0);
+    const {isLoggedIn} = useSelector(state => state.auth);
+    const {wishlist} = useSelector(state => state.wishlist);
+    const {cart} = useSelector(state => state.cart);
     const {id} = useParams();
     const {state} = useLocation();
+    console.log(state);
     const dispatch = useDispatch();
+    const addToCartHandler = (product) => {
+        if(!isLoggedIn) {
+          navigate("/login");
+          return;
+        }
+        if(!product) {
+          toast.error("Product not found");
+          return;
+        }
+        if(cart.find((item) => item.id === product.id)) {
+          toast.error("Product already in cart");
+          return;
+        }
+        dispatch(addToCart(product));
+        toast.success("Product added to cart");
+      }
+    const addToWhishlistHandler = (product) => {
+        if(!isLoggedIn) {
+          navigate("/login");
+          return;
+        }
+        if(!product) {
+          toast.error("Product not found");
+          return;
+        }
+        if(wishlist.find((item) => item.id === product.id)) {
+          toast.error("Product already in wishlist");
+          return;
+        }
+        dispatch(addToWishlist(product));
+        toast.success("Product added to wishlist");
+      } 
     async function fetchProducts() {
         await dispatch(categorieProducts(state?.category||"electronics"));
     }
@@ -33,7 +72,10 @@ function ProductDiscription() {
                             </div>
                             <div className="flex -mx-2 mb-4 items-center justify-center">
                                 <div className="w-1/2 px-2">
-                                    <button className="w-full bg-gray-900 text-white py-2 px-4 rounded-full font-bold hover:bg-gray-800">Add to Cart</button>
+                                    <button className="w-full bg-gray-900 text-white py-2 px-4 rounded-full font-bold hover:bg-gray-800"onClick={()=>addToCartHandler(state)}>Add to Cart</button>
+                                </div>
+                                <div className="w-1/2 px-2">
+                                    <button className="w-full bg-gray-900 text-white py-2 px-4 rounded-full font-bold hover:bg-gray-800" onClick={()=>addToWhishlistHandler(state)}>Add to Wishlist</button>
                                 </div>
                             </div>
                         </div>

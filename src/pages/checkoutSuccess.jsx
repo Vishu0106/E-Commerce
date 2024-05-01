@@ -1,6 +1,6 @@
 import { AiFillCheckCircle } from "react-icons/ai";
 import HomeLayout from "../layouts/HomeLayout";
-import { Link, } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { deleteCart } from "../redux/slices/cartSlice";
 import { useEffect } from "react";
@@ -9,6 +9,8 @@ import toast from "react-hot-toast";
 function CheckoutSuccess() {
 
     const dispatch = useDispatch();
+    const {state} = useLocation();
+    console.log(state);
     useEffect(()=>{
         dispatch(deleteCart());
         toast.success("Order Placed Successfully");
@@ -26,10 +28,15 @@ function CheckoutSuccess() {
                         Order Placed
                     </h2>
                     <p className="text-left text-slate-900">
-                      your order has on the way.
+                      your order has on the way to Address
                     </p>
                 </div>
                 <AiFillCheckCircle className="text-5xl text-green-500 mt-2"/>
+                <p className="text-left text-slate-900">
+                     <span className="text-lx font-bold">FullName :</span> {state?.fullName} <br/>
+                     <span className="text-lx font-bold">Adress :</span>{state?.address} <br/>
+                     <span className="text-lx font-bold">Zipcode :</span>{state?.zipcode}
+                    </p>
                 <Link to="/" className="bg-[#604058] hover:bg-[#60405] transition-all ease-in-out duration-300 absolute bottom-0 w-full py-2 text-center rounded-br-lg rounded-bl-lg">
                <button>Continue Shopping</button>           
               </Link>

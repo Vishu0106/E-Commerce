@@ -4,8 +4,11 @@ import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import { FaIndianRupeeSign } from 'react-icons/fa6';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import {toast} from 'react-hot-toast';
 
 function Checkout({total}) {
+  const navigate = useNavigate();
    const {state} = useLocation();
   const [checkoutDetails, setCheckoutDetails] = useState({
     fullName:'',
@@ -18,6 +21,7 @@ function Checkout({total}) {
         ...checkoutDetails,
         [name]: value
     })
+    console.log("changuing");
 }
 
 async function  onFormSubmit(e) {
@@ -38,6 +42,7 @@ async function  onFormSubmit(e) {
       toast.error("Address should be of 10 characters");
       return;
   }
+  navigate('/payment',{state:{...checkoutDetails}});
 }
   return (
     <HomeLayout>
@@ -86,9 +91,9 @@ async function  onFormSubmit(e) {
                           <h1 className='text-4xl font-bold text-slate-950 flex items-center justify-center'><span><FaIndianRupeeSign className='text-3xl'/></span>{state.total||0}</h1>
                           <h1 className='sm:text-2xl font-semibold text-black flex items-center justify-center gap-3 text-xl'><span>No of Items : </span> {state.noOfItems||0}</h1>                          
                      </div>
-                     <Link to="/payment" className="mt-2 bg-[#604058] hover:bg-[#633557] transition-all ease-in-out duration-300 cursor-pointer py-2 font-semibold text-lg rounded-md text-center">
+                     <button type='submit' className="mt-2 bg-[#604058] hover:bg-[#633557] transition-all ease-in-out duration-300 cursor-pointer py-2 font-semibold text-lg rounded-md text-center">
                             Place Order 
-                     </Link>
+                     </button>
                 </form>
         </div>
     </HomeLayout>
