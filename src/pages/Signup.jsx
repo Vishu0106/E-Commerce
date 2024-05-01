@@ -5,9 +5,10 @@ import { BsPersonCircle } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import {isMailValid , isPasswordValid} from "../helpers/regexMatcher.js";
 import HomeLayout from "../layouts/HomeLayout.jsx";
+import {useNavigate} from 'react-router-dom';
 
 function Signup() {
-
+    const navigate = useNavigate();
     const [signupDetails, setSignupDetails] = useState({
         email:'',
         fullName:'',
@@ -39,6 +40,12 @@ function Signup() {
         }
         localStorage.setItem("user", JSON.stringify(signupDetails));
         toast.success("Account Created Successfully");
+        setSignupDetails({
+            email:'',
+            fullName:'',
+            password:'',
+        });
+        navigate('/login');
     }
 
     function inputHandler(e) {
