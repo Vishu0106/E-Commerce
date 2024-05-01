@@ -31,7 +31,7 @@ function CheckoutSuccess() {
                     </p>
                 </div>
                 <AiFillCheckCircle className="text-5xl text-green-500 mt-2"/>
-                <p className="text-left text-slate-900">
+                <p className="text-left text-slate-900 ml-2">
                      <span className="text-lx font-bold">FullName :</span> {state?.fullName} <br/>
                      <span className="text-lx font-bold">Adress :</span>{state?.address} <br/>
                      <span className="text-lx font-bold">Zipcode :</span>{state?.zipcode}
