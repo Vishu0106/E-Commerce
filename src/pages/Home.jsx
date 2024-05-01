@@ -8,8 +8,11 @@ import HomeLayout from "../layouts/HomeLayout";
 import ProductList from "../components/ProductList";
 
 import bannerOne from "../assets/banners/banner1.jpg";
-import bannerTwo from "../assets/banners/banner2.webp";
-import bannerThree from "../assets/banners/banner3.webp";
+import bannerTwo from "../assets/banners/banner2.jpg";
+import bannerThree from "../assets/banners/banner3.jpg";
+import mbbannerOne from "../assets/banners/mb-banner1.jpg";
+import mbbannerTwo from "../assets/banners/mb-banner2.jpg";
+import mbbannerThree from "../assets/banners/mb-banner3.jpg";
 
 // image imports
 import electronics from "../assets/electronics.avif";
@@ -19,9 +22,10 @@ import womens from "../assets/womens.avif";
 
 
 function CatergorieCard({title,image}) {
-
+    const cat = ["","Electronics","Jwellery","MensClothing","WomensClothing"]
+    const id = cat.indexOf(title);
    return(
-    <Link to={`/products/category/${title.toLowerCase()}`} className="flex mt-3 w-[250px] items-center p-3 gap-5 bg-[#F3F4F6] transition ease-in-out duration-300 rounded-lg border border-[#604058] scale-100 hover:scale-110">
+    <Link to={`/products/category/${id}`} className="flex mt-3 w-[250px] items-center p-3 gap-5 bg-[#F3F4F6] transition ease-in-out duration-300 rounded-lg border border-[#604058] scale-100 hover:scale-110">
         <img className="w-12 h-12 rounded-lg scale-100" src={image} alt="categores"/>
         <p className="text-lg font-medium text-slate-600">{title}</p>
     </Link>
@@ -35,6 +39,11 @@ function Home() {
         bannerOne,
         bannerTwo,
         bannerThree 
+    ]
+    const mbImages = [
+        mbbannerOne,
+        mbbannerTwo,
+        mbbannerThree
     ]
         const [currentImageIndex, setCurrentImageIndex] = useState(0);
       
@@ -66,7 +75,8 @@ function Home() {
                 onClick={nextSlide}>
                     <GrNext />
                 </button>
-                <img src={images[currentImageIndex]} alt={`slide ${currentImageIndex+1}`} className="w-full h-[50vh]"/>
+                <img  src={images[currentImageIndex]} alt={`slide ${currentImageIndex+1}`} className="w-full h-[65vh] hidden md:block"/>
+                <img  src={mbImages[currentImageIndex]} alt={`slide ${currentImageIndex+1}`} className="w-full h-[45vh] md:hidden"/>
             </section>
             <section>
                 <div className="hidden sm:flex flex-col">

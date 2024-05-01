@@ -7,6 +7,7 @@ import NotFound from "./pages/NotFound"
 import RequireAuth from "./components/Auth/RequireAuth"
 import Checkout from "./pages/Checkout"
 import Cart from "./pages/Cart"
+import CategoriProducts from "./pages/CategoriProducts"
 import ProductDiscription from "./pages/ProductDiscription"
 import CheckoutSuccess from "./pages/checkoutSuccess"
 function App() {
@@ -18,6 +19,7 @@ function App() {
       <Route path="/login" element={<Login />} />
       <Route path="/description" element={<ProductDiscription />}></Route>
       <Route path="/notfound" element={<NotFound />} />
+      <Route path="/products/category/:id" element={<CategoriProducts />} />
       <Route element={<RequireAuth />}>
           <Route path="/cart" element={<Cart />}/>
           <Route path="/checkout" element={<Checkout/>}/>

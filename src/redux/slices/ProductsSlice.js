@@ -22,6 +22,7 @@ export const getProducts = createAsyncThunk('/products',async(data)=> {
 
 export const categorieProducts = createAsyncThunk('/products/categorie',async(data)=> {
     try {
+        console.log(`/products/category/${data}`)
         const response =  axiosInstance.get(`/products/category/${data}`);
         toast.promise(response, {
             loading: 'fetching categori Products',
