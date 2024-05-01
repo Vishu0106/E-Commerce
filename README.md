@@ -2,7 +2,13 @@
 
 This project is a React application created using Vite, Tailwind CSS, Redux Toolkit, and React-Router.
 
-As it is Frontend project i have used the below api to get the products details
+## This Project Live Link - Deployed on Vercel
+
+```bash
+   https://e-commerce-lac-zeta.vercel.app/
+```
+
+#### As it is Frontend project i have used the below api to get the products details
 
 ```bash
 https://fakestoreapi.com/products
