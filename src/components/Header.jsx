@@ -1,17 +1,20 @@
 import Homeicon from "../assets/shopping.png";
 import cart from "../assets/shopping-bag.png";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch , useSelector } from "react-redux";
 import { ImCross } from "react-icons/im";
 import { TiThMenu } from "react-icons/ti";
 import toast from "react-hot-toast";
+
 function Header() {
     const [menuOpen,setMenuOpen] = useState(false);
-    const [itemsInCart, setItemsInCart] = useState(0);
+    const response = useSelector(state => state.cart);
+    const [itemsInCart, setItemsInCart] = useState(response.size);
+    
     const {isLoggedIn} = useSelector(state => state.auth);
     const dispatch = useDispatch();
-
+    const responseCart = useSelector(state => state.cart);
     const handleLogout = () => {
         localStorage.removeItem("isLoggedIn");
         window.location.reload();
@@ -26,7 +29,7 @@ function Header() {
                     <Link to="/"><img src={Homeicon} alt="icon" /></Link>
                 </section>
                 <section className="hidden sm:flex items-center gap-5 ">
-                    <Link to='/cart' className=" py-2 px-4 flex bg-[#9f628f] text-white text-sm font-bold rounded-md  hover:bg-[#714B67] translate-all ease-in-out duration-300"><img src={cart} className="w-5 h-5" alt="trolly" /><span>Cart({itemsInCart})</span></Link>
+                    <Link to='/cart' className=" py-2 px-4 flex bg-[#9f628f] text-white text-sm font-bold rounded-md  hover:bg-[#714B67] translate-all ease-in-out duration-300"><img src={cart} className="w-5 h-5" alt="trolly" /><span>Cart({isLoggedIn?itemsInCart:0})</span></Link>
                     {!isLoggedIn?(<Link to='/login' className=" py-2 px-4  bg-[#9f628f] text-white text-sm font-bold rounded-md  hover:bg-[#714B67] translate-all ease-in-out duration-300">Login</Link>):(<Link onClick={handleLogout} className=" py-2 px-4  bg-[#9f628f] text-white text-sm font-bold rounded-md  hover:bg-[#714B67] translate-all ease-in-out duration-300" >Logout</Link>)}
                 </section>
                 <section className=" sm:hidden" onClick={()=>{setMenuOpen(!menuOpen)
@@ -38,7 +41,7 @@ function Header() {
                     {
                         menuOpen && (
                             <div className="sm:hidden absolute top-[10vh] left-0 w-full bg-[#F3F4F6] shadow-lg py-2">
-                                <Link className="block py-2 px-4 text-[#9f628f] hover:bg-gray-200" to="/cart">Cart({itemsInCart})</Link>
+                                <Link className="block py-2 px-4 text-[#9f628f] hover:bg-gray-200" to="/cart">Cart({isLoggedIn?itemsInCart:0})</Link>
                                 {!isLoggedIn?(<Link className="block py-2 px-4 text-[#9f628f] hover:bg-gray-200" to="/login">Login</Link>):(<Link className="block py-2 px-4 text-[#9f628f] hover:bg-gray-200" onClick={handleLogout}>Logout</Link>)}
                                 <Link className="block py-2 px-4 text-[#9f628f] hover:bg-gray-200" to="/categories/electronics">Electronics</Link>
                                 <Link className="block py-2 px-4 text-[#9f628f] hover:bg-gray-200" to="/categories/jwellery">Jewellery</Link>
