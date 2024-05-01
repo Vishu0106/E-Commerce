@@ -29,7 +29,6 @@ function ProductCard({product}) {
   }
   
   const onClikHandle = (id) => {
-    console.log("clicked");
     navigate("/description" , {state: product});
 
   }

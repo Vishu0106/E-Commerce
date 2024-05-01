@@ -21,7 +21,6 @@ function Checkout({total}) {
         ...checkoutDetails,
         [name]: value
     })
-    console.log("changuing");
 }
 
 async function  onFormSubmit(e) {

@@ -10,7 +10,6 @@ function CheckoutSuccess() {
 
     const dispatch = useDispatch();
     const {state} = useLocation();
-    console.log(state);
     useEffect(()=>{
         dispatch(deleteCart());
         toast.success("Order Placed Successfully");

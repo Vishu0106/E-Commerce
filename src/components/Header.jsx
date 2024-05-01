@@ -38,8 +38,7 @@ function Header() {
                     <Link to='/cart' className=" py-2 px-4 flex bg-[#9f628f] text-white text-sm font-bold rounded-md  hover:bg-[#714B67] translate-all ease-in-out duration-300"><img src={cart} className="w-5 h-5" alt="trolly" /><span>Cart({isLoggedIn?itemsInCart:0})</span></Link>
                     {!isLoggedIn?(<Link to='/login' className=" py-2 px-4  bg-[#9f628f] text-white text-sm font-bold rounded-md  hover:bg-[#714B67] translate-all ease-in-out duration-300">Login</Link>):(<Link onClick={handleLogout} className=" py-2 px-4  bg-[#9f628f] text-white text-sm font-bold rounded-md  hover:bg-[#714B67] translate-all ease-in-out duration-300" >Logout</Link>)}
                 </section>
-                <section className=" sm:hidden" onClick={()=>{setMenuOpen(!menuOpen)
-                console.log("clicked")}}>
+                <section className=" sm:hidden" onClick={()=>{setMenuOpen(!menuOpen)}}>
                     {menuOpen?<ImCross className="text-3xl"/>:<TiThMenu className="text-3xl"/>}
                 </section>
             </div>
