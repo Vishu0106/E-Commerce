@@ -8,6 +8,7 @@ import RequireAuth from "./components/Auth/RequireAuth"
 import Checkout from "./pages/Checkout"
 import Cart from "./pages/Cart"
 import ProductDiscription from "./pages/ProductDiscription"
+import CheckoutSuccess from "./pages/checkoutSuccess"
 function App() {
 
   return (
@@ -20,6 +21,7 @@ function App() {
       <Route element={<RequireAuth />}>
           <Route path="/cart" element={<Cart />}/>
           <Route path="/checkout" element={<Checkout/>}/>
+          <Route path="/payment" element={<CheckoutSuccess/>}/>
       </Route>
       <Route path='*' element={<NotFound />}/>
       
