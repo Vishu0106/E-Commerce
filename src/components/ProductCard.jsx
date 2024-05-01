@@ -26,7 +26,6 @@ function ProductCard({product}) {
     }
     dispatch(addToCart(product));
     toast.success("Product added to cart");
-    window.location.reload();
   }
   
   const onClikHandle = (id) => {

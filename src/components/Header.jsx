@@ -21,6 +21,9 @@ function Header() {
         dispatch(logout());
         toast.success("Logged out successfully");
     }
+    useEffect(()=>{
+        setItemsInCart(responseCart.size);
+    },[responseCart.size])
     return (
         <>
         <nav className="h-[10vh]  bg-slate-100 sticky top-0 z-[20] mx-auto border-b-2">
