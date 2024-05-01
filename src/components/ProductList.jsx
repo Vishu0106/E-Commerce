@@ -9,7 +9,7 @@ function ProductList() {
 
   return (
     <section>
-        <div className='m-3 rounded-3xl sm:rounded-md p-10 bg-[#F3F4F6]  flex flex-row flex-wrap gap-4 items-center justify-center'>
+        <div className='m-h-[80vh] m-3 rounded-3xl sm:rounded-md p-10 bg-[#F3F4F6]  flex flex-row flex-wrap gap-4 items-center justify-center'>
             {
                 productList.map((product) => (
                     <ProductCard key={product?.id} product={product} />

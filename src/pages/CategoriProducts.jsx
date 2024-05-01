@@ -17,8 +17,10 @@ function CategoriProducts() {
     },[])
   return (
     <HomeLayout>
-        <h1 className='text-4xl text-center font-bold sm:text-left sm:no-underline  pl-5  text-black'>{cat[id]} products</h1>
+        <div className='min-h-[80vh] w-full flex flex-col flex-wrap items-center justify-center'>
+        <h1 className='text-4xl text-center font-bold text-slate-950'>{cat[id]} products</h1>
         <ProductList />
+        </div>
     </HomeLayout>
   )
 }
