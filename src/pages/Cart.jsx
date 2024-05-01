@@ -4,6 +4,7 @@ import { FiPlus , FiMinus } from "react-icons/fi";
 import { FaBagShopping } from 'react-icons/fa6';
 import { useDispatch , useSelector } from 'react-redux';
 import { addQuantity , subtractQuantity } from '../redux/slices/cartSlice';
+import {  useNavigate } from 'react-router-dom';
 import { removeFromCart } from '../redux/slices/cartSlice';
 import { Link } from 'react-router-dom';
 import toast from 'react-hot-toast';
@@ -49,9 +50,18 @@ function CartCard({product}) {
 function Cart() {
         const {cart} = useSelector(state => state.cart);
         const [total, setTotal] = React.useState(0);
-
+        const navigate = useNavigate();
         const updateTotal = (value) => {
             setTotal(value);
+        }
+        const data = {
+            total : total,
+            noOfItems : cart.length
+        }
+        const handleCheckout = () => {
+            console.log("Checkout",data);
+            navigate("/checkout",{state:data});
+
         }
         useEffect(()=>{
             let total = 0;
@@ -67,9 +77,9 @@ function Cart() {
                             <div className="container mx-auto px-4 py-8 min-h-[80vh]">
                                 <div className="flex flex-col md:flex-row md:justify-between md:items-center">
                                     <h1 className="text-2xl font-bold my-4 sticky">Shopping Cart</h1>
-                                    <Link to='/checkout' className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded text-center">
+                                    <div onClick={handleCheckout} className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded text-center">
                                         Checkout
-                                    </Link>
+                                    </div>
                                 </div>
                             <div className="mt-8">
                                 {
