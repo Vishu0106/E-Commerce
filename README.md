@@ -23,6 +23,44 @@ https://fakestoreapi.com/products
 - [Redux Toolkit](https://redux-toolkit.js.org/) - Redux state management
 - [React-Router-dom](https://reactrouter.com/) - Declarative routing for React
 
+# Website Features
+
+## 1. Signup
+
+- Users can create a new account by providing their email, username, and password.
+- Account validation and email verification are implemented for security.
+
+## 2. Login
+
+- Registered users can log in to their accounts using their email and password.
+- Email and password validation are done from local storage.
+
+## 3. Cart Management
+
+- Users can add products to their shopping cart.
+- Cart functionality includes adding items, removing items, increasing item quantity, and decreasing item quantity.
+- Only logged-in users can access the cart.
+
+## 4. Wishlist
+
+- Users can add products to their wishlist for future reference.
+- Wishlist management allows users to remove items from their wishlist.
+- Wishlist is accessible only to logged-in users.
+
+## 5. Product Categories
+
+- Products are categorized into different categories for easy navigation.
+- Category pages display products relevant to each category.
+
+## 6. Checkout Page
+
+- Users can proceed to checkout to complete their purchases.
+- Access to the checkout page is restricted to logged-in users.
+
+---
+
+**Note:** For detailed usage please install the project the project on your system using the below Installation instructions
+
 
 ## Installation
 
