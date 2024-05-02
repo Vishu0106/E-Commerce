@@ -52,7 +52,7 @@ function Cart() {
         const [total, setTotal] = React.useState(0);
         const navigate = useNavigate();
         const updateTotal = (value) => {
-            setTotal(value);
+            setTotal(+value.toFixed(2));
         }
         const data = {
             total : total,
