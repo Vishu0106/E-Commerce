@@ -14,7 +14,7 @@ function CategoriProducts() {
     }
     useEffect(()=>{
         fetchProducts();
-    },[])
+    },[id])
   return (
     <HomeLayout>
         <div className='min-h-[80vh] w-full flex flex-col flex-wrap items-center justify-center'>
