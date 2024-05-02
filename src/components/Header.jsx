@@ -49,10 +49,10 @@ function Header() {
                                 <Link className="block py-2 px-4 text-[#9f628f] hover:bg-gray-200" to="/cart">Cart({isLoggedIn?itemsInCart:0})</Link>
                                 <Link className="block py-2 px-4 text-[#9f628f] hover:bg-gray-200" to="/wishlist">Wishlistt({isLoggedIn?itemsInWishlist:0})</Link>
                                 {!isLoggedIn?(<Link className="block py-2 px-4 text-[#9f628f] hover:bg-gray-200" to="/login">Login</Link>):(<Link className="block py-2 px-4 text-[#9f628f] hover:bg-gray-200" onClick={handleLogout}>Logout</Link>)}
-                                <Link className="block py-2 px-4 text-[#9f628f] hover:bg-gray-200" to="/categories/electronics">Electronics</Link>
-                                <Link className="block py-2 px-4 text-[#9f628f] hover:bg-gray-200" to="/categories/jwellery">Jewellery</Link>
-                                <Link className="block py-2 px-4 text-[#9f628f] hover:bg-gray-200" to="/categories/mens's clothing">Men's Clothing</Link>
-                                <Link className="block py-2 px-4 text-[#9f628f] hover:bg-gray-200" to="/women's clothing">Women's Clothing</Link>
+                                <Link className="block py-2 px-4 text-[#9f628f] hover:bg-gray-200" to="/products/category/1">Electronics</Link>
+                                <Link className="block py-2 px-4 text-[#9f628f] hover:bg-gray-200" to="/products/category/2">Jewellery</Link>
+                                <Link className="block py-2 px-4 text-[#9f628f] hover:bg-gray-200" to="/products/category/3">Men's Clothing</Link>
+                                <Link className="block py-2 px-4 text-[#9f628f] hover:bg-gray-200" to="/products/category/4">Women's Clothing</Link>
                             </div>
                         )
                     }
